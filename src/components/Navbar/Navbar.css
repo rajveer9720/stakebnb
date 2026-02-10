@@ -1,0 +1,46 @@
+.navbar-brand-custom {
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.navbar-brand-custom:hover {
+  transform: scale(1.05);
+}
+
+.navbar-brand-custom .logo {
+  filter: drop-shadow(0 2px 4px var(--shadow-light));
+  transition: filter 0.3s ease;
+}
+
+.navbar-brand-custom:hover .logo {
+  filter: drop-shadow(0 4px 8px var(--shadow-primary));
+}
+
+.sticky-top {
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+}
+
+/* Mobile responsiveness */
+@media (max-width: 991.98px) {
+  .navbar .container {
+    padding: 0 15px;
+  }
+  
+  .navbar-brand-custom .logo {
+    width: 100px !important;
+  }
+}
+
+/* Smooth scrolling enhancement */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Wallet connect container enhancement */
+.wallet-connect-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px;
+}

@@ -1,0 +1,111 @@
+/* Compact badge-style levels grid */
+.levels-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  justify-content: center;
+  align-items: center;
+  padding: 12px;
+}
+
+/* Tile */
+.level-card {
+  width: 130px;
+  height: 96px;
+  min-width: 130px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 16px;
+  padding: 10px;
+  box-sizing: border-box;
+  background: linear-gradient(180deg,
+    var(--card-bg, rgba(255,255,255,0.02)),
+    var(--card-hover-bg, rgba(255,255,255,0.01))
+  );
+  border: 1px solid var(--card-border, rgba(255, 255, 255, 0.1));
+  color: var(--text-primary, #fff);
+  position: relative;
+  transition: transform 220ms ease, box-shadow 220ms ease;
+  box-shadow: 0 10px 20px var(--shadow-default, rgba(6,8,20,0.6)), inset 0 2px 8px rgba(255,255,255,0.02);
+  backdrop-filter: blur(8px);
+}
+
+/* Hover lift */
+.level-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 18px 36px var(--shadow-light, rgba(6,8,20,0.7)), 0 6px 24px var(--shadow-primary, rgba(99,102,241,0.08));
+}
+
+/* Active state */
+.level-card.is-active {
+  background: linear-gradient(180deg, var(--card-hover-bg, rgba(99,102,241,0.18)), var(--card-bg, rgba(167,139,250,0.12)));
+  border-color: var(--card-hover-border, rgba(99,102,241,0.28));
+  box-shadow: 0 20px 40px var(--shadow-primary, rgba(99,102,241,0.12)), 0 6px 20px var(--shadow-default, rgba(0,0,0,0.45));
+}
+
+/* Small uppercase label */
+.level-number {
+  font-size: 1rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--text-secondary, rgba(255,255,255,0.75));
+  margin-bottom: 6px;
+}
+
+/* Central count */
+.level-count {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--text-primary, #fff);
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Percent badge (top-right) */
+.level-badge {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  font-size: 0.72rem;
+  padding: 6px 8px;
+  border-radius: 10px;
+  background: linear-gradient(180deg, var(--card-bg, rgba(255,255,255,0.04)), var(--card-hover-bg, rgba(255,255,255,0.02)));
+  color: var(--color-secondary, #a78bfa);
+  font-weight: 700;
+  box-shadow: 0 6px 12px var(--shadow-secondary, rgba(99,102,241,0.06));
+}
+
+/* Progress bar tweaks */
+.custom-progress-container {
+  background: var(--progress-bg, rgba(255, 255, 255, 0.02));
+  height: 8px;
+  border-radius: 20px;
+  margin-bottom: 12px;
+  border: 1px solid var(--progress-border, rgba(255, 255, 255, 0.03));
+}
+
+.custom-progress-bar {
+  background: linear-gradient(90deg, var(--color-primary, #6366f1), var(--color-secondary, #a78bfa));
+  height: 100%;
+  border-radius: 20px;
+  box-shadow: 0 0 15px var(--shadow-primary, rgba(99, 102, 241, 0.45));
+  transition: width 1s ease-in-out;
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .level-card {
+    width: 82px;
+    height: 82px;
+    min-width: 82px;
+    border-radius: 12px;
+    padding: 8px;
+  }
+  .level-count { font-size: 1.1rem; }
+  .level-number { font-size: 0.58rem; }
+}

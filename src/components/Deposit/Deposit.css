@@ -1,0 +1,420 @@
+/* Packages Section */
+.packages-section {
+  min-height: 100vh;
+  padding: 60px 20px;
+  background: var(--app-bg-gradient, #0a0a0a);
+  position: relative;
+  overflow: hidden;
+}
+
+
+.packages-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+/* Header */
+.packages-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.packages-title {
+  font-size: 3rem;
+  font-weight: 900;
+  color: var(--heading-color, #ffffff);
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  margin: 0;
+  text-shadow: 0 0 30px var(--shadow-primary, rgba(102, 126, 234, 0.5));
+}
+
+/* Grid Layout */
+.packages-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+  gap: 30px;
+  padding: 20px 0;
+}
+
+@media (max-width: 768px) {
+  .packages-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Package Card */
+.package-card {
+  perspective: 1000px;
+  transition: transform 0.3s ease;
+  border: 1px solid var(--card-border, rgba(255, 255, 255, 0.1));
+  border-radius: 24px;
+  background: var(--card-bg, rgba(255, 255, 255, 0.03));
+}
+
+.package-card:hover {
+  transform: translateY(-8px);
+}
+
+.package-card-inner {
+  background: linear-gradient(135deg, var(--card-bg, #667eea) 0%, var(--card-bg, #764ba2) 100%);
+  border-radius: 24px;
+  padding: 28px;
+  box-shadow: 0 20px 60px var(--shadow-default, rgba(0, 0, 0, 0.4)),
+              0 0 40px var(--shadow-primary, rgba(102, 126, 234, 0.2));
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+
+
+.package-card:hover .package-card-inner {
+  box-shadow: 0 25px 80px var(--shadow-default, rgba(0, 0, 0, 0.5)),
+              0 0 60px var(--shadow-primary, rgba(102, 126, 234, 0.4));
+}
+
+/* Header Section */
+.package-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.package-name {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-primary, #ffffff);
+  letter-spacing: 2px;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.package-lock-icon {
+  width: 36px;
+  height: 36px;
+  background: color-mix(in srgb, var(--text-primary, #ffffff) 15%, transparent);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-primary, #ffffff);
+  backdrop-filter: blur(10px);
+}
+
+/* Earnings Section */
+.package-earnings {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.earnings-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.earnings-label {
+  font-size: 0.75rem;
+  color: var(--text-secondary, rgba(255,255,255,0.7));
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.earnings-value {
+  font-size: 1.6rem;
+  color: var(--text-primary, #ffffff);
+  font-weight: 900;
+  text-shadow: 0 2px 10px var(--shadow-default, rgba(0, 0, 0, 0.3));
+}
+
+/* Duration Section */
+.package-duration {
+  text-align: center;
+  margin: 30px 0;
+  position: relative;
+}
+
+.duration-number {
+  font-size: 5rem;
+  font-weight: 900;
+  color: var(--text-primary, rgba(255,255,255,0.95));
+  line-height: 1;
+  display: block;
+  text-shadow: 0 4px 20px var(--shadow-default, rgba(0, 0, 0, 0.4));
+}
+
+.duration-label {
+  font-size: 0.95rem;
+  color: var(--text-secondary, rgba(255,255,255,0.8));
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+/* Input Section */
+.package-input-section {
+  background: color-mix(in srgb, var(--card-bg, rgba(255, 255, 255, 0.08)) 80%, transparent);
+  border-radius: 16px;
+  padding: 20px;
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--card-border, rgba(255, 255, 255, 0.1));
+}
+
+.input-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.input-group {
+  flex: 1;
+}
+
+.input-label {
+  display: block;
+  font-size: 0.7rem;
+  color: var(--text-secondary, rgba(255, 255, 255, 0.75));
+  margin-bottom: 8px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.package-input {
+  width: 100%;
+  background: var(--deposit-input-bg, rgba(255,255,255,0.12));
+  border: 1px solid color-mix(in srgb, var(--card-border, rgba(255, 255, 255, 0.2)) 80%, transparent);
+  border-radius: 12px;
+  padding: 14px 16px;
+  font-size: 1.1rem;
+  color: var(--text-primary, #ffffff);
+  font-weight: 600;
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+.package-input:focus {
+  background: color-mix(in srgb, var(--card-hover-bg, rgba(255, 255, 255, 0.18)) 70%, transparent);
+  border-color: var(--card-hover-border, rgba(255, 255, 255, 0.4));
+  box-shadow: 0 0 20px var(--shadow-light, rgba(255,255,255,0.15));
+}
+
+.package-input::placeholder {
+  color: var(--text-muted, rgba(255, 255, 255, 0.4));
+}
+
+.roi-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+}
+
+.roi-label {
+  font-size: 0.7rem;
+  color: var(--text-secondary, rgba(255,255,255,0.75));
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.roi-value {
+  font-size: 1.4rem;
+  color: var(--text-primary, #ffffff);
+  font-weight: 900;
+  text-shadow: 0 2px 10px var(--shadow-default, rgba(0, 0, 0, 0.3));
+}
+
+/* Checkbox Section */
+.giveway-bonus {
+  margin-bottom: 15px;
+}
+
+.checkbox-container {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+  gap: 10px;
+  position: relative;
+  padding-left: 32px;
+}
+
+.checkbox-container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.checkmark {
+  position: absolute;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  background: var(--card-bg, rgba(255,255,255,0.12));
+  border: 2px solid var(--card-border, rgba(255, 255, 255, 0.3));
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+.checkbox-container:hover input ~ .checkmark {
+  background: var(--card-hover-bg, rgba(255, 255, 255, 0.18));
+}
+
+.checkbox-container input:checked ~ .checkmark {
+  background: var(--text-primary, #ffffff);
+  border-color: var(--text-primary, #ffffff);
+}
+
+.checkmark::after {
+  content: "";
+  position: absolute;
+  display: none;
+  left: 5px;
+  top: 2px;
+  width: 5px;
+  height: 10px;
+  border: solid var(--color-primary, #667eea);
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.checkbox-container input:checked ~ .checkmark::after {
+  display: block;
+}
+
+.checkbox-label {
+  font-size: 0.8rem;
+  color: var(--text-primary, rgba(255,255,255,0.85));
+  font-weight: 500;
+}
+
+/* Deposit Button */
+.deposit-button {
+  width: 100%;
+  background: var(--btn-bg, #ffffff);
+  color: var(--btn-text, #667eea);
+  border: none;
+  border-radius: 12px;
+  padding: 16px;
+  font-size: 0.95rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 30px var(--shadow-default, rgba(0, 0, 0, 0.2));
+}
+
+.deposit-button:hover:not(:disabled) {
+  background: var(--btn-hover, #f8f9ff);
+  transform: translateY(-2px);
+  box-shadow: 0 15px 40px var(--shadow-default, rgba(0, 0, 0, 0.3));
+}
+
+.deposit-button:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.deposit-button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .packages-title {
+    font-size: 2rem;
+    letter-spacing: 2px;
+  }
+
+  .packages-grid {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  .package-card-inner {
+    padding: 24px;
+  }
+
+  .duration-number {
+    font-size: 4rem;
+  }
+
+  .input-row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 15px;
+  }
+
+  .roi-group {
+    align-items: flex-start;
+  }
+
+  .earnings-value {
+    font-size: 1.4rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .packages-section {
+    padding: 40px 15px;
+  }
+
+  .packages-title {
+    font-size: 1.75rem;
+  }
+
+  .package-card-inner {
+    padding: 20px;
+  }
+
+  .duration-number {
+    font-size: 3.5rem;
+  }
+  .earnings-value {
+    font-size: 1.3rem;
+  }
+  .package-input {
+    font-size: 1rem;
+    padding: 12px 14px;
+  }
+
+  .deposit-button {
+    padding: 14px;
+    font-size: 0.85rem;
+  }
+}
+
+/* Animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.package-card {
+  animation: fadeInUp 0.6s ease-out backwards;
+}
+
+.package-card:nth-child(1) { animation-delay: 0.1s; }
+.package-card:nth-child(2) { animation-delay: 0.2s; }
+.package-card:nth-child(3) { animation-delay: 0.3s; }
+.package-card:nth-child(4) { animation-delay: 0.4s; }
+.package-card:nth-child(5) { animation-delay: 0.5s; }
+.package-card:nth-child(6) { animation-delay: 0.6s; }

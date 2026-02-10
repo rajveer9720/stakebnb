@@ -1,0 +1,85 @@
+
+html, body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+[data-rk] button[data-testid="rk-connect-button"] {
+  color: var(--btn-text) !important;
+  background: var(--btn-bg) !important;
+  border-radius: 100px !important;
+  font-weight: 600 !important;
+  transition: all 0.3s ease !important;
+}
+
+[data-rk] button[data-testid="rk-connect-button"]:hover {
+  transform: translateY(-2px) !important;
+  background: var(--btn-hover) !important;
+  box-shadow: 0 8px 25px var(--shadow-primary) !important;
+}
+
+[data-rk] [data-testid="rk-connect-button"] span {
+  color: var(--btn-text) !important;
+}
+
+div[role="dialog"] button,
+[data-rk] button {
+  color: var(--btn-text) !important;
+}
+
+[data-rk] div[role="dialog"] button[aria-label*="Close"] svg,
+[data-rk] div[role="dialog"] button[aria-label*="close"] svg,
+[data-rk] div[role="dialog"] .close-icon svg,
+[data-rk] div[role="dialog"] button[type="button"] svg {
+  color: #1b1a1a !important;
+  fill: #1b1a1a !important;
+  stroke: #1b1a1a !important;
+}
+
+[data-rk] div[role="dialog"] .info-icon svg,
+[data-rk] div[role="dialog"] button[aria-label*="Info"] svg,
+[data-rk] div[role="dialog"] button[aria-label*="info"] svg {
+  color: #1b1a1a !important;
+  fill: #1b1a1a !important;
+  stroke: #1b1a1a !important;
+}
+
+/* All modal text in light theme */
+[data-rk] div[role="dialog"] {
+  color: #1b1a1a !important;
+}
+
+[data-rk] div[role="dialog"] header svg,
+[data-rk] div[role="dialog"] .modal-header svg {
+  color: #1b1a1a !important;
+  fill: #1b1a1a !important;
+  stroke: #1b1a1a !important;
+}
+
+.navbar.sticky-top,
+.navbar[data-bs-theme] {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  z-index: 1030 !important;
+  width: 100% !important;
+  transition: all 0.3s ease-in-out;
+}
+
+body {
+  padding-top: 80px; 
+}
+
+.navbar .logo {
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.navbar .logo:hover {
+  transform: scale(1.05);
+}
+
+.navbar-brand-custom {
+  cursor: pointer;
+}
