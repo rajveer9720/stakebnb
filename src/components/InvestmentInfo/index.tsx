@@ -17,13 +17,16 @@ const InvestmentInfo: React.FC = () => {
     level3To10Min: import.meta.env.VITE_APP_LEVEL_3_TO_10_MIN_DEPOSIT || "0.04",
     level11To15Min: import.meta.env.VITE_APP_LEVEL_11_TO_15_MIN_DEPOSIT || "0.06",
     level16To20Min: import.meta.env.VITE_APP_LEVEL_16_TO_20_MIN_DEPOSIT || "0.08",
+    appTitle: import.meta.env.VITE_APP_TITLE || "StakeBnb",
   };
+
+  const appTitle = import.meta.env.VITE_APP_TITLE || "StakeBnb";
 
   return (
     <section className="investment-info-section">
       <div className="investment-info-container">
         <div className="investment-info-header">
-          <h2 className="investment-info-title">BNB Chain Investment Parameters</h2>
+          <h2 className="investment-info-title">{`${appTitle} Investment Parameters`}</h2>
           <p className="investment-info-subtitle">
             Complete guide to investment requirements and bonus structures
           </p>
@@ -110,7 +113,7 @@ const InvestmentInfo: React.FC = () => {
                 <div className="info-card level">
                   <div className="level-badge">Level 1-2</div>
                   <div className="info-value">{investmentParams.level1To2Min}<span className="unit"> {symbol}</span></div>
-                  <div className="info-description">Qualified Directs: minimum 3</div>
+                  <div className="info-description">Qualified Directs: minimum 0</div>
                 </div>
                 <div className="info-card level">
                   <div className="level-badge">Level 3-10</div>
@@ -120,12 +123,12 @@ const InvestmentInfo: React.FC = () => {
                 <div className="info-card level">
                   <div className="level-badge">Level 11-15</div>
                   <div className="info-value">{investmentParams.level11To15Min}<span className="unit"> {symbol}</span></div>
-                  <div className="info-description">Qualified Directs: minimum 3</div>
+                  <div className="info-description">Qualified Directs: minimum 5</div>
                 </div>
                 <div className="info-card level">
                   <div className="level-badge">Level 16-20</div>
                   <div className="info-value">{investmentParams.level16To20Min}<span className="unit"> {symbol}</span></div>
-                  <div className="info-description">Qualified Directs: minimum 3</div>
+                  <div className="info-description">Qualified Directs: minimum 10</div>
                 </div>
               </div>
             </div>

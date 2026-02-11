@@ -93,7 +93,7 @@
 .badge-dot {
   width: 8px;
   height: 8px;
-  background: var(--hero-accent);
+  background: var(--color-success, #4caf50);
   border-radius: 50%;
   box-shadow: 0 0 10px var(--shadow-primary);
   animation: blink 1s ease-in-out infinite;
@@ -305,7 +305,7 @@
 .status-dot {
   width: 10px;
   height: 10px;
-  background: var(--hero-accent);
+  background: var(--color-success, #4caf50);
   border-radius: 50%;
   box-shadow: 0 0 15px var(--shadow-primary);
   animation: blink 1.5s ease-in-out infinite;

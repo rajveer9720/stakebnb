@@ -160,12 +160,12 @@ const Referral: React.FC = () => {
             </div>
           </div>
         </div>
-        <h2 className="dashboard-title">Available Bonuses</h2>
+        <h2 className="dashboard-title">Available Bonus</h2>
 
-        <div className="stats-grid-rewards">
+        <div className="stats-grid-rewards">    
 
           <div className="stat-card">
-            <div className="stat-icon-wrapper">🎁</div>
+            <div className="stat-icon-wrapper">🎯</div>
             <div className="stat-content">
               <h4 >Referrals Bonus Available </h4>
               <p className="stat-value">
@@ -175,7 +175,7 @@ const Referral: React.FC = () => {
             </div>
           </div>
           <div className="stat-card">
-            <div className="stat-icon-wrapper">🎁</div>
+            <div className="stat-icon-wrapper">💳</div>
             <div className="stat-content">
               <h4 >Deposit Bonus Available </h4>
               <p className="stat-value">

@@ -23,13 +23,14 @@ interface Plan {
 }
 
 const PLANS: Plan[] = [
-  { id: 0, name: "SAVINGS", dailyEarnings: 12.6, totalROI: 151.2, duration: 12 },
-  { id: 1, name: "CLASSICS", dailyEarnings: 10.5, totalROI: 189.0, duration: 18 },
-  { id: 2, name: "PREMIUM", dailyEarnings: 9.7, totalROI: 242.5, duration: 25 },
-  { id: 3, name: "SILVER", dailyEarnings: 13.3, totalROI: 159.6, duration: 12, givewayBonus: 1 },
-  { id: 4, name: "GOLD", dailyEarnings: 11.6, totalROI: 208.8, duration: 18, givewayBonus: 2 },
-  { id: 5, name: "PLATINUM", dailyEarnings: 11.3, totalROI: 282.5, duration: 25, givewayBonus: 3 },
+  { id: 0, name: "SAVINGS", dailyEarnings: 9.3, totalROI: 111.6, duration: 12 },
+  { id: 1, name: "CLASSICS", dailyEarnings: 7.2, totalROI: 129.6, duration: 18 },
+  { id: 2, name: "PREMIUM", dailyEarnings: 6.4, totalROI: 160, duration: 25 },
+  { id: 3, name: "SILVER", dailyEarnings: 10, totalROI: 213.84, duration: 12, givewayBonus: 1 },
+  { id: 4, name: "GOLD", dailyEarnings: 8.3, totalROI: 325.08, duration: 18, givewayBonus: 2 },
+  { id: 5, name: "PLATINUM", dailyEarnings: 8, totalROI: 584.65, duration: 25, givewayBonus: 3 },
 ];
+
 
 const Packages = () => {
   const { refetchData } = useContractData();
@@ -127,7 +128,7 @@ const Packages = () => {
                       <div className="roi-group">
                         <label className="roi-label">ROI in {plan.duration} Days</label>
                         <span className="roi-value">
-                          {calculateROI(isActive ? deposit.amount : "0", plan)}
+                          {calculateROI(isActive ? deposit.amount : "0", plan)} <span className="symbol">{symbol}</span> 
                         </span>
                       </div>
                     </div>

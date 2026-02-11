@@ -71,14 +71,20 @@ export const useInvest = (refetch: () => void) => {
       return;
     }
     const chain = await getCurrentChainId?.();
-    const v = await validate(isConnected, chain, expectedChainId, walletBalance, state.amount, minDeposit, symbol);
+    const amountToUse = state.planId === planId ? state.amount : "";
+    if (!amountToUse) {
+      showFailedAlert(`Please Enter the Amount to Invest in Plan ${planId+1}`);
+      return;
+    }
+
+    const v = await validate(isConnected, chain, expectedChainId, walletBalance, amountToUse, minDeposit, symbol);
     if (!v.valid) {
       showFailedAlert(v.error || "Validation failed");
       return;
     }
     setState((s) => ({ ...s, alertShown: false, processingId: `plan-${planId}` }));
     const referrer = getReferrer?.();
-    const amountInWei = parseEther(state.amount);
+    const amountInWei = parseEther(amountToUse);
     try {
       writeContract({ 
         address: CONTRACT_ADDRESS, 

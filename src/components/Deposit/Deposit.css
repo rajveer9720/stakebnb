@@ -6,7 +6,11 @@
   position: relative;
   overflow: hidden;
 }
-
+.symbol {
+  font-size: 0.9rem;
+  color: var(--text-secondary, rgba(255,255,255,0.75));
+  margin-left: 4px;
+}
 
 .packages-container {
   max-width: 1400px;

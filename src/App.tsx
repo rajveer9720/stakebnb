@@ -39,6 +39,11 @@ const App: React.FC = () => {
           <Toaster />
           <Navbars />
           <HeroSection />
+          <div className="row">
+              <div className="col-12">
+                <InvestmentInfo />
+              </div>
+            </div>
           <div className="container-fluid">
             <div className="row">
               <div className="col-12">
@@ -55,11 +60,7 @@ const App: React.FC = () => {
                 <Referral />
               </div>
             </div>
-            <div className="row">
-              <div className="col-12">
-                <InvestmentInfo />
-              </div>
-            </div>
+            
             <div className="row">
               <div className="col-12">
                 <Levels />
