@@ -1,11 +1,20 @@
-import React, { useEffect } from "react";
+import { useEffect, useMemo } from "react";
 import { Container, Row, Col } from "react-bootstrap";
+
 import { useContractData } from "../context/ContractDataContext";
 import { getWalletSymbol } from "../../utils/ProviderUtils";
 import { applyTheme } from "../../utils/colorUtils";
+
 import "./HeroSection.css";
 
-const HeroSection: React.FC = () => {
+const HERO_HEADING = import.meta.env.VITE_APP_HERO_HEADING;
+const HERO_SUBTITLE = import.meta.env.VITE_APP_HERO_SUBTITLE;
+const PRESENTATION_LINK = import.meta.env.VITE_APP_PRESENTATION_LINK;
+const CONTRACT_LINK = import.meta.env.VITE_APP_HERO_SMART_CONTRACT;
+
+const BLOCKS = [0, 1, 2, 3];
+
+const HeroSection = () => {
   const { data } = useContractData();
   const symbol = getWalletSymbol();
 
@@ -13,23 +22,40 @@ const HeroSection: React.FC = () => {
     applyTheme();
   }, []);
 
-  const features = [
-    {
-      icon: "⚡",
-      label: "Instant Tx",
-      value: "< 2s",
-    },
-    {
-      icon: "🔒",
-      label: "Security",
-      value: "100%",
-    },
-    {
-      icon: "⛓️",
-      label: "Blocks",
-      value: "∞",
-    },
-  ];
+  const features = useMemo(
+    () => [
+      { icon: "⚡", label: "Instant Tx", value: "< 2s" },
+      { icon: "🔒", label: "Security", value: "100%" },
+      { icon: "⛓️", label: "Blocks", value: "∞" },
+    ],
+    []
+  );
+
+  const metrics = useMemo(
+    () => [
+      {
+        icon: "◆",
+        label: "Total Staked",
+        value: `${data?.totalStaked?.toFixed(4) || 0} ${symbol}`,
+      },
+      {
+        icon: "◈",
+        label: "Active Users",
+        value: data?.totalUsers || 0,
+      },
+      {
+        icon: "◇",
+        label: "Contract Balance",
+        value: `${data?.contractBalance?.toFixed(4) || 0} ${symbol}`,
+      },
+      {
+        icon: "◊",
+        label: "Total Ref Rewards",
+        value: `${data?.totalRefReward?.toFixed(4) || 0} ${symbol}`,
+      },
+    ],
+    [data, symbol]
+  );
 
   return (
     <section className="hero">
@@ -38,30 +64,25 @@ const HeroSection: React.FC = () => {
           <Col lg={7} className="hero-left">
             <div className="glitch-wrapper">
               <span className="protocol-badge">
-                <span className="badge-dot"></span>
+                <span className="badge-dot" />
                 PROTOCOL ACTIVE
               </span>
             </div>
 
             <h1 className="hero-title-matrix">
-              <span
-                className="title-line"
-                data-text={import.meta.env.VITE_APP_HERO_HEADING}
-              >
-                {import.meta.env.VITE_APP_HERO_HEADING}
+              <span className="title-line" data-text={HERO_HEADING}>
+                {HERO_HEADING}
               </span>
             </h1>
 
             <div className="terminal-text">
               <span className="terminal-prompt">$</span>
-              <span className="terminal-content">
-                {import.meta.env.VITE_APP_HERO_SUBTITLE}
-              </span>
+              <span className="terminal-content">{HERO_SUBTITLE}</span>
             </div>
 
             <div className="hero-actions-matrix">
               <a
-                href={import.meta.env.VITE_APP_PRESENTATION_LINK}
+                href={PRESENTATION_LINK}
                 target="_blank"
                 className="btn-matrix btn-primary"
               >
@@ -72,7 +93,7 @@ const HeroSection: React.FC = () => {
               </a>
 
               <a
-                href={import.meta.env.VITE_APP_HERO_SMART_CONTRACT}
+                href={CONTRACT_LINK}
                 target="_blank"
                 className="btn-matrix btn-primary"
               >
@@ -89,7 +110,7 @@ const HeroSection: React.FC = () => {
               <div className="blockchain-header">
                 <span className="header-label">CONTRACT STATUS</span>
                 <span className="header-status">
-                  <span className="status-dot"></span>
+                  <span className="status-dot" />
                   LIVE
                 </span>
               </div>
@@ -103,7 +124,7 @@ const HeroSection: React.FC = () => {
               </div>
 
               <div className="block-chain">
-                {[0, 1, 2, 3].map((block) => (
+                {BLOCKS.map((block) => (
                   <div
                     key={block}
                     className="block"
@@ -111,13 +132,14 @@ const HeroSection: React.FC = () => {
                   >
                     <div className="block-id">#{block + 1}</div>
                     <div className="block-bars">
-                      <div className="bar"></div>
-                      <div className="bar"></div>
-                      <div className="bar"></div>
+                      <div className="bar" />
+                      <div className="bar" />
+                      <div className="bar" />
                     </div>
                   </div>
                 ))}
               </div>
+
               <div className="feature-grid">
                 {features.map((feature, idx) => (
                   <div
@@ -136,43 +158,15 @@ const HeroSection: React.FC = () => {
         </Row>
 
         <div className="metrics-panel">
-          <div className="metric">
-            <div className="metric-icon">◆</div>
-            <div className="metric-content">
-              <div className="metric-label">Total Staked</div>
-              <div className="metric-value">
-                {data?.totalStaked?.toFixed(4) || 0} {symbol}
+          {metrics.map((metric, idx) => (
+            <div key={idx} className="metric">
+              <div className="metric-icon">{metric.icon}</div>
+              <div className="metric-content">
+                <div className="metric-label">{metric.label}</div>
+                <div className="metric-value">{metric.value}</div>
               </div>
             </div>
-          </div>
-
-          <div className="metric">
-            <div className="metric-icon">◈</div>
-            <div className="metric-content">
-              <div className="metric-label">Active Users</div>
-              <div className="metric-value">{data?.totalUsers || 0}</div>
-            </div>
-          </div>
-
-          <div className="metric">
-            <div className="metric-icon">◇</div>
-            <div className="metric-content">
-              <div className="metric-label">Contract Balance</div>
-              <div className="metric-value">
-                {data?.contractBalance?.toFixed(4) || 0} {symbol}
-              </div>
-            </div>
-          </div>
-
-          <div className="metric">
-            <div className="metric-icon">◊</div>
-            <div className="metric-content">
-              <div className="metric-label">Total Ref Rewards</div>
-              <div className="metric-value">
-                {data?.totalRefReward?.toFixed(4) || 0} {symbol}
-              </div>
-            </div>
-          </div>
+          ))}
         </div>
       </Container>
     </section>

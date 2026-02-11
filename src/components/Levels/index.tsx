@@ -15,7 +15,7 @@ const Levels = () => {
           style={{
             fontSize: "2rem",
             letterSpacing: "1px",
-            color: "var(--heading-color)"
+            color: "var(--heading-color)",
           }}
         >
           Users Invited by You
@@ -30,7 +30,7 @@ const Levels = () => {
             const level = index + 1;
             const percentage =
               import.meta.env[`VITE_APP_LEVEL_${level}_PERCENTAGE`] || "";
-            const isActive = false; // set logic if needed
+            const isActive = false;
 
             return (
               <div
@@ -42,11 +42,11 @@ const Levels = () => {
 
                 <div className="level-number">Level {level}</div>
 
-                <div className="level-count">
-                    {downlineCount[index] || 0}
-                </div>
+                <div className="level-count">{downlineCount[index] || 0}</div>
 
-                <div style={{ fontSize: "0.8rem", opacity: 0.75, marginTop: 6 }}>
+                <div
+                  style={{ fontSize: "0.8rem", opacity: 0.75, marginTop: 6 }}
+                >
                   Referrals
                 </div>
               </div>

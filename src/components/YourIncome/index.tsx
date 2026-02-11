@@ -175,9 +175,9 @@ const ReferralLinkData = () => {
             <div className="stat-card card-green">
               <div className="stat-card-icon">💎</div>
               <div className="stat-card-content">
-                <div className="stat-card-label">Total Dividends</div>
+                <div className="stat-card-label">Total Deposits</div>
                 <div className="stat-card-value">
-                  {(data?.userDividends ?? 0).toFixed(4)} {symbol}
+                  {(data?.userTotalDeposits ?? 0).toFixed(4)} {symbol}
                 </div>
               </div>
               <div className="stat-card-decoration"></div>
@@ -186,12 +186,12 @@ const ReferralLinkData = () => {
             <div className="stat-card card-orange">
               <div className="stat-card-icon">💵</div>
               <div className="stat-card-content">
-                <div className="stat-card-label">Available ROI</div>
+                <div className="stat-card-label">User Profit</div>
                 <div className="stat-card-value">
-                  {(data?.userAvailableROI ?? 0).toFixed(4)} {symbol}
+                  {(data?.userProfit ?? 0).toFixed(2)} %
                 </div>
               </div>
-              <div className="stat-card-decoration"></div>
+              <div className="stat-card-decoration"></div>  
             </div>
 
             <div className="stat-card card-pink">

@@ -177,7 +177,6 @@
   border-radius: 20px;
   padding: 2px;
   background: linear-gradient(135deg, transparent, color-mix(in srgb, var(--color-primary, #6366f1) 30%, transparent), transparent);
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
   opacity: 0;
