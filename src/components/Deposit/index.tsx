@@ -135,8 +135,7 @@ const Packages = () => {
                     {plan.givewayBonus && (
                       <div className="giveway-bonus">
                         <label className="checkbox-container">
-                          <input type="checkbox" />
-                          <span className="checkmark" />
+                      ℹ️  
                           <span className="checkbox-label">
                             {plan.givewayBonus}% Giveway Bonus Instant Credit
                           </span>

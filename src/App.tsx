@@ -15,6 +15,7 @@ import {
   ReferralLinkData,
   Levels,
   ScrollToTopButton,
+  InvestmentInfo,
 } from "./components";
 
 const App: React.FC = () => {
@@ -52,6 +53,11 @@ const App: React.FC = () => {
             <div className="row">
               <div className="col-12">
                 <Referral />
+              </div>
+            </div>
+            <div className="row">
+              <div className="col-12">
+                <InvestmentInfo />
               </div>
             </div>
             <div className="row">

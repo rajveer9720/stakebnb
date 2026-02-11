@@ -15,7 +15,7 @@ const Referral: React.FC = () => {
   const chainId = useChainId();
   const projectAddress = import.meta.env.VITE_APP_PROJECT_ADDRESS || "";
   const adminAddress = import.meta.env.VITE_APP_ADMIN_ADDRESS || "";
-  const  refSwitch = import.meta.env.VITE_APP_REF_SWITCH_BUTTON || "true";
+  const refSwitch = import.meta.env.VITE_APP_REF_SWITCH_BUTTON || "true";
   const EXPECTED_CHAIN_ID = getWalletChainId().toString();
 
   const { withdraw, isPending, isLoading } = useWithdrawRewards(refetchData);
@@ -79,7 +79,7 @@ const Referral: React.FC = () => {
       showSuccessAlert("Referral link copied!");
     }
   };
-  
+
   return (
     <section className="referral-section">
       <div className="referral-container">
@@ -97,11 +97,11 @@ const Referral: React.FC = () => {
               {canShowLink
                 ? referralLink
                 : refSwitch !== "true"
-                ? "Referral feature is disabled"
-                : "Invest to unlock your referral link"}
+                  ? "Referral feature is disabled"
+                  : "Invest to unlock your referral link"}
             </span>
           </div>
-          
+
           <button
             className={`copy-btn ${copied ? "copied" : ""}`}
             onClick={handleCopyClick}
@@ -122,7 +122,7 @@ const Referral: React.FC = () => {
           <div className="stat-card">
             <div className="stat-icon-wrapper">💰</div>
             <div className="stat-content">
-              <h4 >Referral Bonus Earned</h4>
+              <h4 >Referral Total Bonus Earned</h4>
               <p className="stat-value" >
                 {(data?.userReferralTotalBonus ?? 0).toFixed(4) || "0.000"}
                 <span className="stat-symbol">{symbol}</span>
@@ -133,7 +133,7 @@ const Referral: React.FC = () => {
           <div className="stat-card">
             <div className="stat-icon-wrapper">👥</div>
             <div className="stat-content">
-              <h4 >Total Referrals</h4>
+              <h4 >Total Direct Referrals</h4>
               <p className="stat-value">
                 {data?.directedReferralsCount ?? 0}
               </p>
@@ -143,9 +143,54 @@ const Referral: React.FC = () => {
           <div className="stat-card">
             <div className="stat-icon-wrapper">🎁</div>
             <div className="stat-content">
+              <h4 >Referrals Total Withdrawn </h4>
+              <p className="stat-value">
+                {(data?.userReferralWithdrawn ?? 0).toFixed(4) || "0.000"}
+                <span className="stat-symbol">{symbol}</span>
+              </p>
+            </div>
+          </div>
+          <div className="stat-card">
+            <div className="stat-icon-wrapper">✅</div>
+            <div className="stat-content">
+              <h4 >Qualified Referrals</h4>
+              <p className="stat-value">
+                {data?.qualifiedReferralsCount ?? 0}
+              </p>
+            </div>
+          </div>
+        </div>
+        <h2 className="dashboard-title">Available Bonuses</h2>
+
+        <div className="stats-grid-rewards">
+
+          <div className="stat-card">
+            <div className="stat-icon-wrapper">🎁</div>
+            <div className="stat-content">
               <h4 >Referrals Bonus Available </h4>
               <p className="stat-value">
-                {data?.userReferralBonus ?? 0}
+                {(data?.userReferralBonus ?? 0).toFixed(4) || "0.000"}
+                <span className="stat-symbol">{symbol}</span>
+              </p>
+            </div>
+          </div>
+          <div className="stat-card">
+            <div className="stat-icon-wrapper">🎁</div>
+            <div className="stat-content">
+              <h4 >Deposit Bonus Available </h4>
+              <p className="stat-value">
+                {(data?.userDepositBonus ?? 0).toFixed(4) || "0.000"}
+                <span className="stat-symbol">{symbol}</span>
+              </p>
+            </div>
+          </div>
+          <div className="stat-card">
+            <div className="stat-icon-wrapper">🎁</div>
+            <div className="stat-content">
+              <h4 >Giveaway Bonus Available </h4>
+              <p className="stat-value">
+                {(data?.userGiveawayBonus ?? 0).toFixed(4) || "0.000"}
+                <span className="stat-symbol">{symbol}</span>
               </p>
             </div>
           </div>

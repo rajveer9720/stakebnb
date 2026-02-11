@@ -153,7 +153,13 @@
 /* Stats Grid - Bento Box Style */
 .stats-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+.stats-grid-rewards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 1.5rem;
   margin-bottom: 2.5rem;
 }
@@ -327,6 +333,9 @@
   .stats-grid {
     grid-template-columns: repeat(2, 1fr);
   }
+  .rewards-row {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 @media (max-width: 768px) {
@@ -345,6 +354,10 @@
   .stats-grid {
     grid-template-columns: 1fr;
     gap: 1.25rem;
+  }
+
+  .rewards-row {
+    grid-template-columns: repeat(2, 1fr);
   }
   
   .stat-card {
@@ -396,6 +409,10 @@
     padding: 1rem 2rem;
     font-size: 1rem;
   }
+
+  .rewards-row {
+    grid-template-columns: 1fr;
+  }
   
   .premium-withdraw-btn {
     font-size: 1rem;
@@ -423,4 +440,37 @@
   .stat-value {
     font-size: 1.5rem;
   }
+}
+
+/* Three Reward Cards Row */
+.rewards-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-bottom: 1.75rem;
+}
+
+.reward-card {
+  background: linear-gradient(145deg, var(--card-bg, rgba(255,255,255,0.02)) 0%, transparent 100%);
+  border: 1px solid var(--card-border, rgba(255,255,255,0.06));
+  border-radius: 14px;
+  padding: 1rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  align-items: flex-start;
+}
+
+.reward-title {
+  font-size: 0.85rem;
+  color: var(--text-muted, rgba(255,255,255,0.65));
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.reward-value {
+  font-size: 1.4rem;
+  font-weight: 900;
+  color: var(--text-primary, #ffffff);
 }

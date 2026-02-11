@@ -7,6 +7,7 @@ import ReferralLinkData from "./YourIncome";
 import Levels from "./Levels";
 import ScrollToTopButton from "./ScrollUpButton";
 import WalletConnect from "./walletconnect";
+import InvestmentInfo from "./InvestmentInfo";
 
 export {
   ScrollToTopButton,
@@ -18,4 +19,5 @@ export {
   Referral,
   ReferralLinkData,
   Levels,
+  InvestmentInfo,
 };

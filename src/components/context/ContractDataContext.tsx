@@ -17,6 +17,7 @@ interface ContractDataType {
   checkpoint?: number;
   referrer?: string;
   directedReferralsCount?: number;
+  qualifiedReferralsCount?: number;
   userDownlineCount?: number[];
 
   userAvailable?: number;
@@ -54,6 +55,7 @@ const initialData: ContractDataType = {
   checkpoint: 0,
   referrer: "0x0000000000000000000000000000000000000000",
   directedReferralsCount: 0,
+  qualifiedReferralsCount: 0,
   userDownlineCount: [],
   userAvailable: 0,
   userAvailableROI: 0,
@@ -123,6 +125,7 @@ export const ContractDataProvider: React.FC<{ children: React.ReactNode }> = ({
         userReferralBonus: fetchedData.userReferralBonus,
         userReferralTotalBonus: fetchedData.userReferralTotalBonus,
         userReferralWithdrawn: fetchedData.userReferralWithdrawn,
+        qualifiedReferralsCount: fetchedData.qualifiedReferralsCount,
         userTotalDeposits: fetchedData.userTotalDeposits,
         userProfit: fetchedData.userProfit,
         referralLink: fetchedData.referralLink,
@@ -155,6 +158,7 @@ export const ContractDataProvider: React.FC<{ children: React.ReactNode }> = ({
       userAvailableRewards: 0,
       userReferralBonus: 0,
       userReferralTotalBonus: 0,
+      qualifiedReferralsCount: 0,
       userReferralWithdrawn: 0,
       userTotalDeposits: 0,
       userProfit: 0,

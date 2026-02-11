@@ -10,6 +10,7 @@ interface ContractData {
   checkpoint?: number;
   referrer?: string;
   directedReferralsCount?: number;
+  qualifiedReferralsCount?: number;
   userDownlineCount?: number[];
 
   userAvailable?: number;
@@ -69,17 +70,20 @@ export const fetchContractData = async (
           checkpoint,
           referrer,
           directedReferralsCount,
+          qualifiedReferralsCount,
           userTotalDeposits,
         ] = await Promise.all([
           contract.getUserCheckpoint(address),
           contract.getUserReferrer(address),
           contract.getUserDirectReferralsCount(address),
+          contract.getQualifiedDirects(address),
           contract.getUserTotalDeposits(address),
         ]);
 
         data.checkpoint = Number(checkpoint.toString());
         data.referrer = String(referrer);
         data.directedReferralsCount = Number(directedReferralsCount.toString());
+        data.qualifiedReferralsCount = Number(qualifiedReferralsCount.toString());
         data.userTotalDeposits = Number(ethers.formatEther(userTotalDeposits));
       } catch {}
 
