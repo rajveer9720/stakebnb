@@ -162,7 +162,7 @@ const ReferralLinkData = () => {
               disabled={(data?.userAvailableROI ?? 0) === 0}
             >
               <span className="btn-icon">⚡</span>
-              <span className="btn-text">Withdraw Dividends & Bonus</span>
+              <span className="btn-text">Withdraw Roi Dividends</span>
             </button>
           </div>
         </div>

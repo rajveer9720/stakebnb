@@ -4,7 +4,7 @@ import { useConnectModal } from "@rainbow-me/rainbowkit";
 
 import { useContractData } from "../context/ContractDataContext";
 import { getWalletChainId, getWalletSymbol } from "../../utils/ProviderUtils";
-import { useDeposit } from "../../utils/writeFunctions";
+import { useInvest } from "../../utils/writeFunctions";
 import { applyTheme } from "../../utils/colorUtils";
 
 import "./Deposit.css";
@@ -41,8 +41,8 @@ const Packages = () => {
   const symbol = getWalletSymbol();
   const walletBalance = Number(balance?.formatted || 0);
 
-  const { state: deposit, setState: setDeposit, handleDeposit, isPending, isLoading } =
-    useDeposit(refetchData);
+  const { state: deposit, setState: setDeposit, invest, isPending, isLoading } =
+    useInvest(refetchData);
 
   const getCurrentChainId = async () => {
     if (!window.ethereum) return chainId;
@@ -148,7 +148,7 @@ const Packages = () => {
                       className="deposit-button"
                       disabled={isProcessing}
                       onClick={() =>
-                        handleDeposit(
+                        invest(
                           plan.id,
                           walletBalance,
                           MIN_DEPOSIT,
