@@ -240,7 +240,7 @@
 /* Notice Box */
 .info-notice {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   gap: 1rem;
   background: linear-gradient(135deg, 
     color-mix(in srgb, var(--color-warning, #ffbe0b) 8%, transparent), 

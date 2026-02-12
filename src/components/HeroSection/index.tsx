@@ -44,11 +44,6 @@ const HeroSection = () => {
         value: data?.totalUsers || 0,
       },
       {
-        icon: "◇",
-        label: "Contract Balance",
-        value: `${data?.contractBalance?.toFixed(4) || 0} ${symbol}`,
-      },
-      {
         icon: "◊",
         label: "Total Ref Rewards",
         value: `${data?.totalRefReward?.toFixed(4) || 0} ${symbol}`,
@@ -62,12 +57,6 @@ const HeroSection = () => {
       <Container className="hero-container">
         <Row className="hero-main-row">
           <Col lg={7} className="hero-left">
-            <div className="glitch-wrapper">
-              <span className="protocol-badge">
-                <span className="badge-dot" />
-                PROTOCOL ACTIVE
-              </span>
-            </div>
 
             <h1 className="hero-title-matrix">
               <span className="title-line" data-text={HERO_HEADING}>
@@ -83,7 +72,7 @@ const HeroSection = () => {
             <div className="hero-actions-matrix">
               <a
                 href={PRESENTATION_LINK}
-                target="_blank"
+                  target="_blank"
                 className="btn-matrix btn-primary"
               >
                 <span className="btn-content">

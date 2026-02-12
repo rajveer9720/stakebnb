@@ -238,18 +238,16 @@
 }
 
 /* Checkbox Section */
-.giveway-bonus {
+.giveaway-bonus {
   margin-bottom: 15px;
 }
 
 .checkbox-container {
   display: flex;
   align-items: center;
-  cursor: pointer;
   user-select: none;
   gap: 10px;
   position: relative;
-  padding-left: 32px;
 }
 
 .checkbox-container input {

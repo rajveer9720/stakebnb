@@ -69,17 +69,17 @@ const InvestmentInfo: React.FC = () => {
                   <div className="info-value bonus">
                     +{investmentParams.firstDepositBonus1} {symbol}
                   </div>
-                  <div className="info-description">Bonus on first deposit</div>
+                  <div className="info-description">Bonus on first deposit of your direct Referrals</div>
                 </div>
                 <div className="info-card highlight">
                   <div className="info-label">Deposit ≥ {investmentParams.firstDepositThreshold2} {symbol}</div>
                   <div className="info-value bonus">
                     +{investmentParams.firstDepositBonus2} {symbol}
                   </div>
-                  <div className="info-description">Bonus on first deposit</div>
+                  <div className="info-description">Bonus on first deposit of your direct Referrals</div>
                 </div>
               </div>
-            </div>
+            </div>  
           </div>
 
           {/* Right Column */}
@@ -113,22 +113,22 @@ const InvestmentInfo: React.FC = () => {
                 <div className="info-card level">
                   <div className="level-badge">Level 1-2</div>
                   <div className="info-value">{investmentParams.level1To2Min}<span className="unit"> {symbol}</span></div>
-                  <div className="info-description">Qualified Directs: minimum 0</div>
+                  <div className="info-description">Qualified Directs: MIN 0</div>
                 </div>
                 <div className="info-card level">
                   <div className="level-badge">Level 3-10</div>
                   <div className="info-value">{investmentParams.level3To10Min}<span className="unit"> {symbol}</span></div>
-                  <div className="info-description">Qualified Directs: minimum 3</div>
+                  <div className="info-description">Qualified Directs: MIN 3</div>
                 </div>
                 <div className="info-card level">
                   <div className="level-badge">Level 11-15</div>
                   <div className="info-value">{investmentParams.level11To15Min}<span className="unit"> {symbol}</span></div>
-                  <div className="info-description">Qualified Directs: minimum 5</div>
+                  <div className="info-description">Qualified Directs: MIN 5</div>
                 </div>
                 <div className="info-card level">
                   <div className="level-badge">Level 16-20</div>
                   <div className="info-value">{investmentParams.level16To20Min}<span className="unit"> {symbol}</span></div>
-                  <div className="info-description">Qualified Directs: minimum 10</div>
+                  <div className="info-description">Qualified Directs: MIN 10</div>
                 </div>
               </div>
             </div>

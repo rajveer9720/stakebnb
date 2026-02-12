@@ -4,11 +4,34 @@ import "./level.css";
 
 const Levels = () => {
   const { data } = useContractData();
-  const totalLevels = Number(import.meta.env.VITE_APP_TOTAL_LEVEL_LENGTH) || 20;
+  const levelPercentages = [
+    "3.0%",
+    "1.0%",
+    "1.0%",
+    "1.0%",
+    "1.0%",
+    "1.0%",
+    "1.0%",
+    "1.0%",
+    "1.0%",
+    "1.0%",
+    "0.5%",
+    "0.5%",
+    "0.5%",
+    "0.5%",
+    "0.5%",
+    "0.2%",
+    "0.2%",
+    "0.2%",
+    "0.2%",
+    "0.2%",
+  ];
+
+  const totalLevels = levelPercentages.length;
   const downlineCount = data?.userDownlineCount || [];
 
   return (
-    <section className="py-5" style={{ color: colors.textPrimary || "#fff" }}>
+    <section className="py-5 levels-section" style={{ color: colors.textPrimary || "#fff" }}>
       <div className="container">
         <h2
           className="text-center mb-4 fw-bold"
@@ -28,8 +51,7 @@ const Levels = () => {
         <div className="levels-grid">
           {Array.from({ length: totalLevels }, (_, index) => {
             const level = index + 1;
-            const percentage =
-              import.meta.env[`VITE_APP_LEVEL_${level}_PERCENTAGE`] || "";
+            const percentage = levelPercentages[index] || "";
             const isActive = false;
 
             return (
@@ -38,16 +60,23 @@ const Levels = () => {
                 className={`level-card ${isActive ? "is-active" : ""}`}
                 aria-label={`Level ${level}`}
               >
-                {percentage && <div className="level-badge">{percentage}%</div>}
+                
 
-                <div className="level-number">Level {level}</div>
+                <div className="level-body">
+                  <div className="level-header" >
+                  <div className="level-number">Level {level}</div>
+                  {percentage && (
+                  <div className="level-badge1">{percentage}</div>
+                )}
+                </div>
 
-                <div className="level-count">{downlineCount[index] || 0}</div>
+                  <div className="level-count">{downlineCount[index] || 0}</div>
 
-                <div
-                  style={{ fontSize: "0.8rem", opacity: 0.75, marginTop: 6 }}
-                >
-                  Referrals
+                  <div
+                    style={{ fontSize: "0.8rem", opacity: 0.75, marginTop: 6 }}
+                  >
+                    Referrals
+                  </div>
                 </div>
               </div>
             );

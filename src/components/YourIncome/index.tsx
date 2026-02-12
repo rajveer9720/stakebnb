@@ -137,7 +137,7 @@ const ReferralLinkData = () => {
             <div className="hero-amount">
               <span className="amount-value">
                 {(data?.userAvailableROI ?? 0).toFixed(4)}
-              </span>
+              </span> 
               <span className="amount-symbol">{symbol}</span>
             </div>
 

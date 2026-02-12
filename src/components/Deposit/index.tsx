@@ -19,16 +19,16 @@ interface Plan {
   dailyEarnings: number;
   totalROI: number;
   duration: number;
-  givewayBonus?: number;
+  giveawayBonus?: number;
 }
 
 const PLANS: Plan[] = [
   { id: 0, name: "SAVINGS", dailyEarnings: 9.3, totalROI: 111.6, duration: 12 },
   { id: 1, name: "CLASSICS", dailyEarnings: 7.2, totalROI: 129.6, duration: 18 },
   { id: 2, name: "PREMIUM", dailyEarnings: 6.4, totalROI: 160, duration: 25 },
-  { id: 3, name: "SILVER", dailyEarnings: 10, totalROI: 213.84, duration: 12, givewayBonus: 1 },
-  { id: 4, name: "GOLD", dailyEarnings: 8.3, totalROI: 325.08, duration: 18, givewayBonus: 2 },
-  { id: 5, name: "PLATINUM", dailyEarnings: 8, totalROI: 584.65, duration: 25, givewayBonus: 3 },
+  { id: 3, name: "SILVER", dailyEarnings: 10, totalROI: 213.84, duration: 12, giveawayBonus: 1 },
+  { id: 4, name: "GOLD", dailyEarnings: 8.3, totalROI: 325.08, duration: 18, giveawayBonus: 2 },
+  { id: 5, name: "PLATINUM", dailyEarnings: 8, totalROI: 584.65, duration: 25, giveawayBonus: 3 },
 ];
 
 
@@ -69,7 +69,7 @@ const Packages = () => {
   }, []);
 
   return (
-    <div className="packages-section">
+    <div className="packages-section" id="deposit">
       <div className="packages-container">
         <div className="packages-header">
           <h1 className="packages-title">PACKAGES</h1>
@@ -133,12 +133,12 @@ const Packages = () => {
                       </div>
                     </div>
 
-                    {plan.givewayBonus && (
-                      <div className="giveway-bonus">
+                    {plan.giveawayBonus && (
+                      <div className="giveaway-bonus">
                         <label className="checkbox-container">
                       ℹ️  
                           <span className="checkbox-label">
-                            {plan.givewayBonus}% Giveway Bonus Instant Credit
+                            {plan.giveawayBonus}% Giveaway Bonus Instant Credit
                           </span>
                         </label>
                       </div>
