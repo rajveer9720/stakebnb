@@ -32,7 +32,8 @@ interface ContractDataType {
   userTotalGiveawayBonus?: number;
 
   userTotalDeposits: number;
-  userDividends?: number;
+  UserActualDividends?: number;
+  userLockedROI?: number;
   userProfit: number;
   referralLink: string;
 
@@ -68,7 +69,8 @@ const initialData: ContractDataType = {
   userGiveawayBonus: 0,
   userTotalGiveawayBonus: 0,
   userTotalDeposits: 0,
-  userDividends: 0,
+  UserActualDividends: 0,
+  userLockedROI: 0,
   userProfit: 0,
   referralLink: "",
   totalROIWithdrawn: 0,
@@ -132,7 +134,8 @@ export const ContractDataProvider: React.FC<{ children: React.ReactNode }> = ({
         checkpoint: fetchedData.checkpoint,
         referrer: fetchedData.referrer,
         directedReferralsCount: fetchedData.directedReferralsCount,
-        userDividends: fetchedData.userDividends,
+        UserActualDividends: fetchedData.UserActualDividends,
+        userLockedROI: fetchedData.userLockedROI,
         userDepositBonus: fetchedData.userDepositBonus,
         userTotalDepositBonus: fetchedData.userTotalDepositBonus,
         userGiveawayBonus: fetchedData.userGiveawayBonus,
@@ -165,7 +168,8 @@ export const ContractDataProvider: React.FC<{ children: React.ReactNode }> = ({
       referralLink: "",
       checkpoint: 0,
       directedReferralsCount: 0,
-      userDividends: 0,
+      UserActualDividends: 0,
+      userLockedROI: 0,
       userDepositBonus: 0,
       userTotalDepositBonus: 0,
       userGiveawayBonus: 0,

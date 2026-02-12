@@ -24,8 +24,9 @@ interface ContractData {
   userGiveawayBonus?: number;
   userTotalGiveawayBonus?: number;
 
+  userLockedROI?: number;
   userTotalDeposits: number;
-  userDividends?: number;
+  UserActualDividends?: number;
   userProfit: number;
   referralLink: string;
 
@@ -62,6 +63,7 @@ export const fetchContractData = async (
       userTotalDeposits: 0,
       userProfit: 0,
       referralLink: "",
+      userLockedROI: 0,
     };
 
     if (address) {
@@ -92,12 +94,12 @@ export const fetchContractData = async (
           userAvailable,
           userAvailableROI,
           userAvailableRewards,
-          userDividends,
+          UserActualDividends,
         ] = await Promise.all([
           contract.getUserAvailable(address),
           contract.getUserAvailableROI(address),
           contract.getUserAvailableRewards(address),
-          contract.getUserDividends(address),
+          contract.getUserActualDividends(address),
         ]);
 
         data.userAvailable = Number(ethers.formatEther(userAvailable));
@@ -105,7 +107,7 @@ export const fetchContractData = async (
         data.userAvailableRewards = Number(
           ethers.formatEther(userAvailableRewards)
         );
-        data.userDividends = Number(ethers.formatEther(userDividends));
+        data.UserActualDividends = Number(ethers.formatEther(UserActualDividends));
       } catch {}
 
       try {
@@ -175,12 +177,14 @@ export const fetchContractData = async (
     }
 
     const userProfit =
-      data.userTotalDeposits > 0 && data.userDividends
-        ? Number(((data.userDividends / data.userTotalDeposits) * 100).toFixed(2))
+      data.userTotalDeposits > 0 && data.UserActualDividends
+        ? Number(((data.UserActualDividends / data.userTotalDeposits) * 100).toFixed(2))
         : 0;
 
     data.userProfit = userProfit;
     data.referralLink = referralLink;
+    const totalLockedROI = (data.UserActualDividends ?? 0) - (data.userAvailableROI ?? 0);
+    data.userLockedROI = Number(totalLockedROI.toFixed(4));
 
     return data;
   } catch (error) {

@@ -143,9 +143,12 @@ const ReferralLinkData = () => {
 
             <div className="hero-stats-row">
               <div className="mini-stat-item">
-                <div className="mini-stat-label">Total Earned</div>
+                <div className="mini-stat-label">Total Locked ROI</div>
                 <div className="mini-stat-value">
-                  {(data?.userDividends ?? 0).toFixed(4)} {symbol}
+                    {(
+                      (data?.userLockedROI ??
+                        ((data?.UserActualDividends ?? 0) - (data?.userAvailableROI ?? 0)))
+                    ).toFixed(4)} {symbol}
                 </div>
               </div>
               <div className="mini-stat-item">

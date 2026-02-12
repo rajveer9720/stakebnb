@@ -199,7 +199,13 @@ const Referral: React.FC = () => {
         <button
           className="withdraw-referral-btn"
           onClick={() => withdraw(isConnected, getCurrentChainId, EXPECTED_CHAIN_ID, openConnectModal)}
-          disabled={isPending || isLoading || (data?.userReferralBonus ?? 0) === 0}
+          disabled={
+            isPending ||
+            isLoading ||
+            ((data?.userReferralBonus ?? 0) +
+              (data?.userDepositBonus ?? 0) +
+              (data?.userGiveawayBonus ?? 0)) === 0
+          }
         >
           {isPending || isLoading ? "Processing..." : "Withdraw Rewards"}
         </button>
